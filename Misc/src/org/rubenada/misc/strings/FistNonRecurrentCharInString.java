@@ -1,4 +1,4 @@
-package org.rubenada.misc.arrays;
+package org.rubenada.misc.strings;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;
