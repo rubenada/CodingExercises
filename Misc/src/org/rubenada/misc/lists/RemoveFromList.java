@@ -42,6 +42,26 @@ public class RemoveFromList {
         return header;
     }
 
+    // remove all nodes (in a sorted list) whose value is k
+    public static Node removeFromSortedList (Node header, int k) {
+
+        // auxiliary dummy node whose next is the header of the list
+        Node aux = new Node(0);
+        aux.next = header;
+        Node current = aux;
+
+        while (current.next != null) {
+           if (current.next.value == k)
+               current.next = current.next.next;
+           else if (current.next.value > k)
+               break;
+           else // current.next.value < k
+            current = current.next;
+        }
+
+        return aux.next;
+    }
+
 
     // remove nodes with duplicated values
     public static Node removeDuplicates (Node header) {
@@ -80,7 +100,7 @@ public class RemoveFromList {
         System.out.println("}");
         header = removeGreaterThan(header, 1);
         current = header;
-        System.out.print("removeGreaterThan List: { ");
+        System.out.print("removeGreaterThan 1 List: { ");
         while (current != null) {
             System.out.print(current + " ");
             current = current.next;
@@ -104,6 +124,29 @@ public class RemoveFromList {
         header = removeDuplicates(header);
         current = header;
         System.out.print("removeDuplicates List: { ");
+        while (current != null) {
+            System.out.print(current + " ");
+            current = current.next;
+        }
+        System.out.println("}");
+
+
+        header = new Node (0);
+        current = header;
+        for (int i=1; i<=9; i++) {
+            current.next = new Node(i);
+            current = current.next;
+        }
+        current = header;
+        System.out.print("Original List: { ");
+        while (current != null) {
+            System.out.print(current + " ");
+            current = current.next;
+        }
+        System.out.println("}");
+        header = removeFromSortedList(header, 3);
+        current = header;
+        System.out.print("removeFromSortedList (3) List: { ");
         while (current != null) {
             System.out.print(current + " ");
             current = current.next;
