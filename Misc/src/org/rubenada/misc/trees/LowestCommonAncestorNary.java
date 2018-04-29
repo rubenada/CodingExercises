@@ -47,10 +47,7 @@ public class LowestCommonAncestorNary {
                     return root; // we have at least two children with partial lcs solution, the lcs is the current root
             }
         }
-        if (lcsChild != null)
-            return lcsChild;
-
-        return null; // should not happen
+        return lcsChild;
     }
 
 
@@ -93,7 +90,7 @@ public class LowestCommonAncestorNary {
         set.add(eight);set.add(four);set.add(ten);
         System.out.println("lowestCommonAncestor("+Arrays.toString(set.toArray())+")=" + lowestCommonAncestor(root, set));
         set.clear();
-        set.add(eight);set.add(twelve);set.add(thirteen);
+        set.add(eight);set.add(twelve);set.add(thirteen);set.add(nine);set.add(eleven);
         System.out.println("lowestCommonAncestor("+Arrays.toString(set.toArray())+")=" + lowestCommonAncestor(root, set));
 
     }
