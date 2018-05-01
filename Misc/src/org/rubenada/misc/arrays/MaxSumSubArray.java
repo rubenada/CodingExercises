@@ -16,40 +16,29 @@ public class MaxSumSubArray {
         System.out.println("maxSubArraySum(" + Arrays.toString(array2)+ ") = " + maxSubArraySum(array2));
         System.out.println("maxSubArraySum(" + Arrays.toString(array3)+ ") = " + maxSubArraySum(array3));
 
-        System.out.println("maxSubArrayProduct(" + Arrays.toString(array1)+ ") = " + maxSubArrayProduct(array1));
-        System.out.println("maxSubArrayProduct(" + Arrays.toString(array2)+ ") = " + maxSubArrayProduct(array2));
-        System.out.println("maxSubArrayProduct(" + Arrays.toString(array3)+ ") = " + maxSubArrayProduct(array3));
+        //System.out.println("maxSubArrayProduct(" + Arrays.toString(array1)+ ") = " + maxSubArrayProduct(array1));
+        //System.out.println("maxSubArrayProduct(" + Arrays.toString(array2)+ ") = " + maxSubArrayProduct(array2));
+        //System.out.println("maxSubArrayProduct(" + Arrays.toString(array3)+ ") = " + maxSubArrayProduct(array3));
     }
 
     public static Integer maxSubArraySum (int[] array) {
         if (array == null || array.length == 0)
             return null;
 
-        int max = Integer.MIN_VALUE;
-        int maxEndingHere = 0;
+        int max = array[0];
+        int maxEndingHere = array[0];
 
-        for (int i = 0; i < array.length; i++) {
-            maxEndingHere += array[i];
+        for (int i = 1; i < array.length; i++) {
+            maxEndingHere = Math.max(array[i], maxEndingHere+array[i]);
             max = Math.max(max, maxEndingHere);
-            maxEndingHere = Math.max(maxEndingHere, 0);
         }
         return max;
     }
 
     // equivalent but with product
     public static Integer maxSubArrayProduct (int[] array) {
-        if (array == null || array.length == 0)
-            return null;
-
-        int max = Integer.MIN_VALUE;
-        int maxEndingHere = 1;
-
-        for (int i = 0; i < array.length; i++) {
-            maxEndingHere *= array[i];
-            max = Math.max(max, maxEndingHere);
-            maxEndingHere = Math.max(maxEndingHere, 1);
-        }
-        return max;
+        //TODO
+        return 0;
     }
 
 }
