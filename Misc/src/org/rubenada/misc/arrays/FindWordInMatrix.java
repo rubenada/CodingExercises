@@ -4,7 +4,7 @@ package org.rubenada.misc.arrays;
 /**
  * Given a 2D matrix of characters, check if a certain work can be found
  */
-public class SortWordInMatrix {
+public class FindWordInMatrix {
 
     enum Direction {
         UP,
